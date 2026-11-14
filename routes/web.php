@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+
+
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -58,6 +61,15 @@ Route::prefix('admin')->group(function () {
     Route::get('users', function () {
         return 'Admin Users';
     });
+
+});
+Route::middleware(['auth'])->group(function () {
+
+    // Routes accessible to all authenticated users
+
+    Route::get('/user/profile', [UserController::class, 'profile']);
+
+    Route::get('/user/settings', [UserController::class, 'settings']);
 
 });
 
