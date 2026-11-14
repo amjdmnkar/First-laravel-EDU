@@ -49,6 +49,18 @@ Route::get('/user/account/profile/', function () {
 
 });
 
+Route::prefix('admin')->group(function () {
+
+    Route::get('dashboard', function () {
+        return 'Admin Dashboard';
+    });
+
+    Route::get('users', function () {
+        return 'Admin Users';
+    });
+
+});
+
 
 
 
