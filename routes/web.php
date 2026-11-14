@@ -72,6 +72,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/user/settings', [UserController::class, 'settings']);
 
 });
+Route::controller(OrderController::class)->group(function () {
+
+    Route::get('/orders/{id}', 'show');
+
+    Route::post('/orders', 'store');
+
+});
 
 
 
