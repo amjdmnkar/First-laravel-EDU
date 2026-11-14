@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::view('/welcome','welcome');
+
+Route::view('/students','students',['name'=>'Amjad']);
 
 Route::get('/welcome', function () {
     return view('welcome');
@@ -25,6 +28,17 @@ Route::get('/user/{id}',function($id)
 {
     return 'the user id who have passed it within url is = '.$id;
 });
+Route::get('/posts/{post}/comments/{comment}', function (string $postId, string $commentId) {
+
+    return 'Post IS : ' . $postId . ' The comment Is: ' . $commentId;
+
+});
+Route::get('/students/classes/{name?}', function (string $name = 'applications development') {
+
+    return $name;
+
+});
+
 
 
 
