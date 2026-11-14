@@ -38,7 +38,16 @@ Route::get('/students/classes/{name?}', function (string $name = 'applications d
     return $name;
 
 });
+Route::get('/user/account/profile/personalinfo', function () {
 
+    return "Personal Info For User";
+
+})->name('profile');
+Route::get('/user/account/profile/', function () {
+
+    return redirect()->route('profile');
+
+});
 
 
 
